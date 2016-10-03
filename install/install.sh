@@ -24,7 +24,7 @@ elif [ "${lower_case}" = "ios" ];
 then
 	lib_path="lib/ios"
 	target="iphoneos-cross"
-	ios_sdk_version="8.2"
+	ios_sdk_version="9.3"
 else
 	echo "Unkown selection: ${1}"
 	echo "usage: ./install.sh [platform]"
@@ -34,8 +34,44 @@ fi
 
 build()
 {
-	config=$1
-	config_path=$2
+	prefix=$1
+
+	./Configure ${target} --${config} --prefix=${prefix}
+	
+	make -j 6
+	make install_sw
+	make clean
+}
+
+buildIos()
+{
+	developer=`xcode-select -print-path`
+	platform="iPhoneOS"
+	prefix=$1
+
+	export $platform
+	export CROSS_TOP="${developer}/Platforms/${platform}.platform/Developer"
+	export CROSS_SDK="${platform}${ios_sdk_version}.sdk"
+	export BUILD_TOOLS="${developer}"
+	export CC="${BUILD_TOOLS}/usr/bin/gcc -arch arm64"
+
+	echo "Building openssl for ${platform} ${ios_sdk_version} arm64"
+
+	./Configure ${target} --${config} --prefix=${prefix}
+
+	sed -id "s!^CFLAG=!CFLAG=isysroot ${CROSS_TOP}/SDKs/${CROSS_SDK} -miphoneos-version-min=${SDK_VERSION} !" "Makefile"
+
+	make -j 6
+	make install_sw
+	make clean
+
+	if [ -f Makefiled ] ; then rm Makefile ; fi
+}
+
+for i in 0 1 
+do
+	config=${config_settings[i]}
+	config_path=${config_paths[i]}
 	# we should be starting in the blocks absolute path
 	block_absolute_path=`pwd`
 	final_library_path=${block_absolute_path}/${lib_path}${config_path}
@@ -50,50 +86,20 @@ build()
 	mkdir -p ${final_library_path}
 	mkdir -p ${temp_library_path}
 	mkdir -p ${final_include_path}
-
+	
 	cd openssl
 	
-	./Configure ${target} --${config} --prefix=${temp_library_path}
-	
-	make -j 6
-	make install_sw
-	make clean
-	
+	if [ "${lower_case}" = "ios" ]; then		
+		buildIos ${temp_library_path}
+	else
+		build ${temp_library_path}
+	fi
+
+	cd ..
+
 	cp -r ${temp_library_path}/include/ ${final_include_path}
 	cp ${temp_library_path}/lib/*.a ${final_library_path}
-
 	rm -rf ${block_absolute_path}/tmp
-	
-	cd ..
-}
-
-buildIos()
-{
-	developer=`xcode-select -print-path`
-	platform="iPhoneOS"
-	config=$1
-	config_paht=$2
-	
-	export $platform
-	export CROSS_TOP="${developer}/Platforms/${platform}.platform/Developer"
-	export CROSS_SDK="${platform}${ios_sdk_version}.sdk"
-	export BUILD_TOOLS="${developer}"
-	export CC="${BUILD_TOOLS}/usr/bin/gcc -arch arm64"
-
-	echo "Building openssl for ${platform} ${ios_sdk_version} arm64"
-
-	./Configure ${target} --${config} --openssldir="/tmp/${lib_path}${config_path}"
-
-	sed -id "s!^CFLAG=!CFLAG=isysroot ${CROSS_TOP}/SDKs/${CROSS_SDK} -miphoneos-version-min=${SDK_VERSION} !" "Makefile"
-
-	make
-	make install
-	make clean
-}
-
-for i in 0 1 
-do
-	build ${config_settings[i]} ${config_paths[i]}
 done
 
 
