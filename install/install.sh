@@ -60,10 +60,13 @@ buildIos()
 	export CC="${BUILD_TOOLS}/usr/bin/gcc -arch arm64"
 
 	echo "Building openssl for ${platform} ${ios_sdk_version} arm64"
+	if [ "${config}" = "debug" ]; then
+		./Configure ${target} --${config} --prefix=${prefix}
+	else
+		./Configure ${target} --prefix=${prefix}
+	fi
 
-	./Configure ${target} --${config} --prefix=${prefix}
-
-	sed -id "s!^CFLAG=!CFLAG=isysroot ${CROSS_TOP}/SDKs/${CROSS_SDK} -miphoneos-version-min=${SDK_VERSION} !" "Makefile"
+	#sed -id "s!^CFLAG=!CFLAG=isysroot ${CROSS_TOP}/SDKs/${CROSS_SDK} -miphoneos-version-min=${SDK_VERSION} !" "Makefile"
 
 	make -j 6
 	make install_sw
@@ -106,23 +109,27 @@ do
 done
 
 # generate a key so that we can test with the app.
+if [ "${lower_case}" != "ios" ]; then
+	current_dir=`pwd`
+	test_key_path=${current_dir}/test/SSL_Test/assets/dummy_key
+	temp_bin_path=${current_dir}/tmp/openssl/bin
+	cnf_path=${current_dir}/openssl/apps/openssl.cnf
 
-current_dir=`pwd`
-test_key_path=${current_dir}/test/SSL_Test/assets/dummy_key
-temp_bin_path=${current_dir}/tmp/openssl/bin
-cnf_path=${current_dir}/openssl/apps/openssl.cnf
+	rm -rf ${test_key_path}
+	mkdir -p ${test_key_path}
+	echo "Generating dummy key"
+	${temp_bin_path}/openssl genrsa -out ${test_key_path}/dummy.com.key 2048
+	echo "Generating dummy certificate"
+	${temp_bin_path}/openssl req -new -sha256 -key ${test_key_path}/dummy.com.key -out ${test_key_path}/dummy.com.csr -config ${cnf_path}
+	echo "Signing certificate"
+	${temp_bin_path}/openssl x509 -req -days 3650 -in ${test_key_path}/dummy.com.csr -signkey ${test_key_path}/dummy.com.key -out ${test_key_path}/dummy.com.crt
+	cp ${test_key_path}/dummy.com.key ${test_key_path}/dummy.com.key.secure
+	${temp_bin_path}/openssl rsa -in ${test_key_path}/dummy.com.key.secure -out ${test_key_path}/dummy.com.key -config ${cnf_path}
+	${temp_bin_path}/openssl dhparam -out ${test_key_path}/dh1024.pem 1024
+else
+	echo "Need to run osx config to generate key."
+fi
 
-rm -rf ${test_key_path}
-mkdir -p ${test_key_path}
-echo "Generating dummy key"
-${temp_bin_path}/openssl genrsa -out ${test_key_path}/dummy.com.key 2048
-echo "Generating dummy certificate"
-${temp_bin_path}/openssl req -new -sha256 -key ${test_key_path}/dummy.com.key -out ${test_key_path}/dummy.com.csr -config ${cnf_path}
-echo "Signing certificate"
-${temp_bin_path}/openssl x509 -req -days 3650 -in ${test_key_path}/dummy.com.csr -signkey ${test_key_path}/dummy.com.key -out ${test_key_path}/dummy.com.crt
-cp ${test_key_path}/dummy.com.key ${test_key_path}/dummy.com.key.secure
-${temp_bin_path}/openssl rsa -in ${test_key_path}/dummy.com.key.secure -out ${test_key_path}/dummy.com.key -config ${cnf_path}
-${temp_bin_path}/openssl dhparam -out ${test_key_path}/dh1024.pem 1024
 rm -rf tmp
 echo "Build Complete!"
 
