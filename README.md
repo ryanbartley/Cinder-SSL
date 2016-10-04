@@ -1,23 +1,14 @@
 #Info
 
-Small shim over [BoringSSL](https://boringssl.googlesource.com/boringssl), Googles ssl implementation. Very similar to OpenSSL. Decision to use this based on [this](https://konradzemek.com/2015/08/16/asio-ssl-and-scalability/) post on performance of asio, openssl, and others.
+Small shim over [OpenSSL](https://github.com/openssl/openssl). Mostly concerned with a simple way of including OpenSSL in Cinder projects.
 
-##How to build boringssl
+##INSTALLATION
 
-git submodule init
-git submodule update
+* After cloning the repo, run `git submodule update --init`. This will retreive the correct openssl version.
+* On Windows, execute the installation script using `cd install && install.bat`.
+* On Linux, iOS, MacOSX, execute the installation script using `cd install && ./install.sh [platform]`. Values for platform are linux, ios, macosx
 
-add boringssl/include to header_search_paths
-
-build boring ssl (inside boringssl root)
-	mkdir build
-	cd build
-	cmake -DCMAKE_BUILD_SYSTEM=Release .. (or debug, also, on mac it weirdly defaults to 32 bit build, look at the CmakeLists.txt to change that)
-	make
-
-add proper links to other linker flags for libssl, libcrypto, and libdecrepit
-
-also, you may have to change part of asio. here's the diff -> https://gist.github.com/kzemek/37aa2a2138b2651f2c55
+After installation all libraries and includes should be where the need to be.
 
 ##Generating csr, key, pem
 
