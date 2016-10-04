@@ -12,8 +12,8 @@ if( NOT TARGET Cinder-SSL )
 		
 	string( TOLOWER "${CINDER_TARGET}" CINDER_TARGET_LOWER )
 	
-	get_filename_component( SSL_LIBS_PATH "${CMAKE_CURRENT_LIST_DIR}/../../lib/${CINDER_TARGET_LOWER}/${CMAKE_BUILD_TYPE}" ABSOLUTE )
-	set( Cinder-SSL_LIBRARIES ${SSL_LIBS_PATH}/libcrypto.a ${SSL_LIBS_PATH}/libssl.a )
+	get_filename_component( SSL_LIBS_PATH "${CINDER_SSL_INCLUDE_PATH}/${CINDER_TARGET_LOWER}/${CMAKE_BUILD_TYPE}" ABSOLUTE )
+	set( Cinder-SSL_LIBRARIES ${SSL_LIBS_PATH}/libssl.a ${SSL_LIBS_PATH}/libcrypto.a )
 	set( Cinder-SSL_INCLUDES ${CINDER_SSL_INCLUDE_PATH}/include )
 
 endif()
