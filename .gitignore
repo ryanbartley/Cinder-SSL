@@ -63,6 +63,8 @@ jniLibs/
 cinderConfig.cmake
 
 lib/include
+assets/
+tmp/
 
 # CinderBlocks
 blocks/

@@ -68,7 +68,7 @@ buildIos()
 	if [ -f Makefiled ] ; then rm Makefile ; fi
 }
 
-for i in 0 1 
+for i in 0 
 do
 	config=${config_settings[i]}
 	config_path=${config_paths[i]}
@@ -99,9 +99,21 @@ do
 
 	cp -r ${temp_library_path}/include/ ${final_include_path}
 	cp ${temp_library_path}/lib/*.a ${final_library_path}
-	rm -rf ${block_absolute_path}/tmp
 done
 
+current_dir=`pwd`
+test_key_path=${current_dir}/test/SSL_Test/assets/dummy_key
+temp_bin_path=${current_dir}/tmp/openssl/bin
+cnf_path=${current_dir}/openssl/apps/openssl.cnf
 
-
+rm -rf ${test_key_path}
+mkdir -p ${test_key_path}
+echo "Generating dummy key"
+${temp_bin_path}/openssl genrsa -out ${test_key_path}/dummy.com.key 2048
+echo "Generating dummy certificate"
+${temp_bin_path}/openssl req -new -sha256 -key ${test_key_path}/dummy.com.key -out ${test_key_path}/dummy.com.csr -config ${cnf_path}
+echo "Testing dummy certificate"
+${temp_bin_path}/openssl req -noout -text -in ${test_key_path}/dummy.com.csr -config ${cnf_path}
+rm -rf tmp
+echo "Build Complete!"
 

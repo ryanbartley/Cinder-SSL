@@ -244,8 +244,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = (
 					"\"$(CINDER_PATH)/include\"",
-					../../../boringssl,
-					../../../boringssl/include,
+					../../../lib/include,
 				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
@@ -283,8 +282,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = (
 					"\"$(CINDER_PATH)/include\"",
-					../../../boringssl,
-					../../../boringssl/include,
+					../../../lib/include,
 				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
