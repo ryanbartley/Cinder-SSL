@@ -155,7 +155,7 @@ private:
 };
 
 std::vector<std::shared_ptr<ClientConnection>> createClients(
-IoServices &ioServices, std::size_t messageSize, std::size_t number)
+															 IoServices &ioServices, std::size_t messageSize, std::size_t number)
 {
 	asio::ip::tcp::resolver resolver{ioServices.get()};
 	auto iterator = resolver.resolve({"127.0.0.1", "5555"});
@@ -169,8 +169,8 @@ IoServices &ioServices, std::size_t messageSize, std::size_t number)
 }
 
 std::chrono::milliseconds measureTransferTime(
-std::vector<std::shared_ptr<ClientConnection>> &clients,
-std::size_t messages)
+											  std::vector<std::shared_ptr<ClientConnection>> &clients,
+											  std::size_t messages)
 {
 	auto startTime = std::chrono::steady_clock::now();
 	
@@ -189,15 +189,15 @@ using namespace ci;
 using namespace ci::app;
 using namespace std;
 
-class SSL_TestApp : public App {
-  public:
+class SSLApp : public App {
+public:
 	void setup() override;
 	void mouseDown( MouseEvent event ) override;
 	void update() override;
 	void draw() override;
 };
 
-void SSL_TestApp::setup()
+void SSLApp::setup()
 {
 	std::size_t threadsNo = 8;
 	std::size_t connections = 25;
@@ -219,17 +219,17 @@ void SSL_TestApp::setup()
 	ioServices.stop();
 }
 
-void SSL_TestApp::mouseDown( MouseEvent event )
+void SSLApp::mouseDown( MouseEvent event )
 {
 }
 
-void SSL_TestApp::update()
+void SSLApp::update()
 {
 }
 
-void SSL_TestApp::draw()
+void SSLApp::draw()
 {
 	gl::clear( Color( 0, 0, 0 ) );
 }
 
-CINDER_APP( SSL_TestApp, RendererGl )
+CINDER_APP( SSLApp, RendererGl )

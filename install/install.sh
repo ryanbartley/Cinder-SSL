@@ -110,8 +110,9 @@ done
 
 # generate a key so that we can test with the app.
 if [ "${lower_case}" != "ios" ]; then
+	# key generation code found here...http://stackoverflow.com/questions/6452756/exception-running-boost-asio-ssl-example
 	current_dir=`pwd`
-	test_key_path=${current_dir}/test/SSL_Test/assets/dummy_key
+	test_key_path=${current_dir}/test/SSL/assets/dummy_key
 	temp_bin_path=${current_dir}/tmp/openssl/bin
 	cnf_path=${current_dir}/openssl/apps/openssl.cnf
 

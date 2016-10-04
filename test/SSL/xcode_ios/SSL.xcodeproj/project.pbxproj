@@ -33,16 +33,16 @@
 		C7FB19D6124BC0D70045AFD2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FB19D5124BC0D70045AFD2 /* AudioToolbox.framework */; };
 		00A66A361965AC8800B17EB3 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A66A351965AC8800B17EB3 /* Accelerate.framework */; };
 		00748058165D41390024B57A /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 00748057165D41390024B57A /* assets */; };
-		3D11296E72514E4D9E705026 /* SSL_Test_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = A8755FDA55424B43AA6B632E /* SSL_Test_Prefix.pch */; };
-		4B510C50901944B9A0C490BC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C455F3F7863407BA4C81178 /* LaunchScreen.xib */; };
-		813B00F70CA94E06A7CE7C94 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB79F63FAC7F4EC69525C51E /* Images.xcassets */; };
-		A815EC72E6B444F986101102 /* CinderApp_ios.png in Resources */ = {isa = PBXBuildFile; fileRef = 53182C0A525A4F308EA0E87D /* CinderApp_ios.png */; };
-		C5B6CCBFF0C54EA4ACAC9FE1 /* Resources.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D2D15D769834F74B7D74033 /* Resources.h */; };
-		90691EB229AD4D5D954E1D66 /* SSL_TestApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B370A594ABAE47E298EFA0F4 /* SSL_TestApp.cpp */; };
+		A80FB0B1146C43F3B5836A65 /* SSL_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 0C13236E6ECB47BF857D7886 /* SSL_Prefix.pch */; };
+		5B11E9D93BFD4F3B9F001488 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD5456E6CFB4D6B86926423 /* LaunchScreen.xib */; };
+		F73ABA02D9E444B192E2525C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 245684B746654D36911E091D /* Images.xcassets */; };
+		AA027DCF9BE84AACA0A00FC6 /* CinderApp_ios.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CCE1FAD6D34D668BF5DAC7 /* CinderApp_ios.png */; };
+		C8FCF049952F43A5B53CDB4F /* Resources.h in Headers */ = {isa = PBXBuildFile; fileRef = 61E81E1A7FD941189926D9C1 /* Resources.h */; };
+		9596D3482578431BBC30E987 /* SSLApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8E514772CFA4269BCB5251E /* SSLApp.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		00692BCF14FF149000D0A05E /* SSL_Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSL_Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		00692BCF14FF149000D0A05E /* SSL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0087D25412CD809F002CD69F /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		00CFDF6A1138442D0091E310 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		00CFDF6A1138442D0091FFFF /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -57,13 +57,13 @@
 		C7FB19D5124BC0D70045AFD2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		00A66A351965AC8800B17EB3 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		00748057165D41390024B57A /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = ../assets; sourceTree = "<group>"; };
-		B370A594ABAE47E298EFA0F4 /* SSL_TestApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; path = ../src/SSL_TestApp.cpp; sourceTree = "<group>"; name = SSL_TestApp.cpp; };
-		3D2D15D769834F74B7D74033 /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../include/Resources.h; sourceTree = "<group>"; name = Resources.h; };
-		53182C0A525A4F308EA0E87D /* CinderApp_ios.png */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = ../resources/CinderApp_ios.png; sourceTree = "<group>"; name = CinderApp_ios.png; };
-		DB79F63FAC7F4EC69525C51E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = Images.xcassets; sourceTree = "<group>"; name = Images.xcassets; };
-		5C455F3F7863407BA4C81178 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = LaunchScreen.xib; sourceTree = "<group>"; name = LaunchScreen.xib; };
-		E869AF99767942C0A44E7D83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; name = Info.plist; };
-		A8755FDA55424B43AA6B632E /* SSL_Test_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = SSL_Test_Prefix.pch; sourceTree = "<group>"; name = SSL_Test_Prefix.pch; };
+		A8E514772CFA4269BCB5251E /* SSLApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; path = ../src/SSLApp.cpp; sourceTree = "<group>"; name = SSLApp.cpp; };
+		61E81E1A7FD941189926D9C1 /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../include/Resources.h; sourceTree = "<group>"; name = Resources.h; };
+		B5CCE1FAD6D34D668BF5DAC7 /* CinderApp_ios.png */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = ../resources/CinderApp_ios.png; sourceTree = "<group>"; name = CinderApp_ios.png; };
+		245684B746654D36911E091D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = Images.xcassets; sourceTree = "<group>"; name = Images.xcassets; };
+		ACD5456E6CFB4D6B86926423 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = LaunchScreen.xib; sourceTree = "<group>"; name = LaunchScreen.xib; };
+		1FB432DAB2674802AB2BBAFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; name = Info.plist; };
+		0C13236E6ECB47BF857D7886 /* SSL_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = SSL_Prefix.pch; sourceTree = "<group>"; name = SSL_Prefix.pch; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +105,7 @@
 		00692BD014FF149000D0A05E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				00692BCF14FF149000D0A05E /* SSL_Test.app */,
+				00692BCF14FF149000D0A05E /* SSL.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,8 +140,8 @@
 		99692BD914FF149000D0A05F /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				3D2D15D769834F74B7D74033 /* Resources.h */,
-				A8755FDA55424B43AA6B632E /* SSL_Test_Prefix.pch */,
+				61E81E1A7FD941189926D9C1 /* Resources.h */,
+				0C13236E6ECB47BF857D7886 /* SSL_Prefix.pch */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -149,7 +149,7 @@
 		00692BD914FF149000D0A05E /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				B370A594ABAE47E298EFA0F4 /* SSL_TestApp.cpp */,
+				A8E514772CFA4269BCB5251E /* SSLApp.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -158,10 +158,10 @@
 			isa = PBXGroup;
 			children = (
 				00748057165D41390024B57A /* assets */,
-				53182C0A525A4F308EA0E87D /* CinderApp_ios.png */,
-				DB79F63FAC7F4EC69525C51E /* Images.xcassets */,
-				5C455F3F7863407BA4C81178 /* LaunchScreen.xib */,
-				E869AF99767942C0A44E7D83 /* Info.plist */,
+				B5CCE1FAD6D34D668BF5DAC7 /* CinderApp_ios.png */,
+				245684B746654D36911E091D /* Images.xcassets */,
+				ACD5456E6CFB4D6B86926423 /* LaunchScreen.xib */,
+				1FB432DAB2674802AB2BBAFC /* Info.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -169,9 +169,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00692BCE14FF149000D0A05E /* SSL_Test */ = {
+		00692BCE14FF149000D0A05E /* SSL */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00692BF514FF149000D0A05E /* Build configuration list for PBXNativeTarget "SSL_Test" */;
+			buildConfigurationList = 00692BF514FF149000D0A05E /* Build configuration list for PBXNativeTarget "SSL" */;
 			buildPhases = (
 				00692BCB14FF149000D0A05E /* Sources */,
 				00692BCC14FF149000D0A05E /* Frameworks */,
@@ -181,9 +181,9 @@
 			);
 			dependencies = (
 			);
-			name = SSL_Test;
-			productName = SSL_Test;
-			productReference = 00692BCF14FF149000D0A05E /* SSL_Test.app */;
+			name = SSL;
+			productName = SSL;
+			productReference = 00692BCF14FF149000D0A05E /* SSL.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -191,7 +191,7 @@
 /* Begin PBXProject section */
 		00692BC614FF149000D0A05E /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = 00692BC914FF149000D0A05E /* Build configuration list for PBXProject "SSL_Test" */;
+			buildConfigurationList = 00692BC914FF149000D0A05E /* Build configuration list for PBXProject "SSL" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -203,7 +203,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				00692BCE14FF149000D0A05E /* SSL_Test */,
+				00692BCE14FF149000D0A05E /* SSL */,
 			);
 		};
 /* End PBXProject section */
@@ -214,9 +214,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				00748058165D41390024B57A /* assets in Resources */,
-				A815EC72E6B444F986101102 /* CinderApp_ios.png in Resources */,
-				813B00F70CA94E06A7CE7C94 /* Images.xcassets in Resources */,
-				4B510C50901944B9A0C490BC /* LaunchScreen.xib in Resources */,
+				AA027DCF9BE84AACA0A00FC6 /* CinderApp_ios.png in Resources */,
+				F73ABA02D9E444B192E2525C /* Images.xcassets in Resources */,
+				5B11E9D93BFD4F3B9F001488 /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,7 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90691EB229AD4D5D954E1D66 /* SSL_TestApp.cpp in Sources */,
+				9596D3482578431BBC30E987 /* SSLApp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,7 +261,10 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				CINDER_PATH = "../../../../..";
-				HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(CINDER_PATH)/include\"",
+					../../../lib/include,
+				);
 				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include";
 			};
 			name = Debug;
@@ -292,7 +295,10 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				CINDER_PATH = "../../../../..";
-				HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(CINDER_PATH)/include\"",
+					../../../lib/include,
+				);
 				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include";
 			};
 			name = Release;
@@ -301,17 +307,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SSL_Test_Prefix.pch";
+				GCC_PREFIX_HEADER = "SSL_Prefix.pch";
 				INFOPLIST_FILE = "Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 				"OTHER_LDFLAGS[sdk=iphoneos*][arch=*]" = (
-					"\"$(CINDER_PATH)/lib/libcinder-iphone_d.a\"",
+					"\"$(CINDER_PATH)/lib/ios/$(CONFIGURATION)/libcinder.a\"",
 					"-lz",
+					../../../lib/ios/Debug/libssl.a,
+					../../../lib/ios/Debug/libcrypto.a,
 				);
 				"OTHER_LDFLAGS[sdk=iphonesimulator*][arch=*]" = (
-					"\"$(CINDER_PATH)/lib/libcinder-iphone-sim_d.a\"",
+					"\"$(CINDER_PATH)/lib/ios-sim/$(CONFIGURATION)/libcinder.a\"",
 					"-lz",
+					../../../lib/ios/Debug/libssl.a,
+					../../../lib/ios/Debug/libcrypto.a,
 				);
 			};
 			name = Debug;
@@ -320,17 +330,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SSL_Test_Prefix.pch";
+				GCC_PREFIX_HEADER = "SSL_Prefix.pch";
 				INFOPLIST_FILE = "Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 				"OTHER_LDFLAGS[sdk=iphoneos*][arch=*]" = (
-					"\"$(CINDER_PATH)/lib/libcinder-iphone.a\"",
+					"\"$(CINDER_PATH)/lib/ios/$(CONFIGURATION)/libcinder.a\"",
 					"-lz",
+					../../../lib/ios/Release/libssl.a,
+					../../../lib/ios/Release/libcrypto.a,
 				);
 				"OTHER_LDFLAGS[sdk=iphonesimulator*][arch=*]" = (
-					"\"$(CINDER_PATH)/lib/libcinder-iphone-sim.a\"",
+					"\"$(CINDER_PATH)/lib/ios-sim/$(CONFIGURATION)/libcinder.a\"",
 					"-lz",
+					../../../lib/ios/Release/libssl.a,
+					../../../lib/ios/Release/libcrypto.a,
 				);
 			};
 			name = Release;
@@ -338,7 +352,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00692BC914FF149000D0A05E /* Build configuration list for PBXProject "SSL_Test" */ = {
+		00692BC914FF149000D0A05E /* Build configuration list for PBXProject "SSL" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00692BF314FF149000D0A05E /* Debug */,
@@ -347,7 +361,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		00692BF514FF149000D0A05E /* Build configuration list for PBXNativeTarget "SSL_Test" */ = {
+		00692BF514FF149000D0A05E /* Build configuration list for PBXNativeTarget "SSL" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00692BF614FF149000D0A05E /* Debug */,

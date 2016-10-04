@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<cinder>
+<block
+	name="Cinder-SSL"
+	id="org.libcinder.ssl"
+	author="Ryan Bartley"
+	version="1.0.2"
+	git="https://github.com/ryanbartley/Cinder-SSL"
+	>
+	<supports os="ios" />
+	<supports os="macosx" />
+	<supports os="msw" />
+	
+	<includePath system="true">lib/include/</includePath>
+
+	<platform os="ios">
+		<platform config="Debug">
+			<staticLibrary>lib/ios/Debug/libssl.a</staticLibrary>
+			<staticLibrary>lib/ios/Debug/libcrypto.a</staticLibrary>
+		</platform>
+		<platform config="Release">
+			<staticLibrary>lib/ios/Release/libssl.a</staticLibrary>
+			<staticLibrary>lib/ios/Release/libcrypto.a</staticLibrary>
+		</platform>
+	</platform>
+	<platform os="macosx">
+		<platform config="Debug">
+			<staticLibrary>lib/macosx/Debug/libssl.a</staticLibrary>
+			<staticLibrary>lib/macosx/Debug/libcrypto.a</staticLibrary>
+		</platform>
+		<platform config="Release">
+			<staticLibrary>lib/macosx/Release/libssl.a</staticLibrary>
+			<staticLibrary>lib/macosx/Release/libcrypto.a</staticLibrary>
+		</platform>
+	</platform>
+	<platform os="msw">
+		<platform config="Debug">
+			<staticLibrary>lib/msw/Debug/libssl.a</staticLibrary>
+			<staticLibrary>lib/msw/Debug/libcrypto.a</staticLibrary>
+		</platform>
+		<platform config="Release">
+			<staticLibrary>lib/msw/Release/libssl.a</staticLibrary>
+			<staticLibrary>lib/msw/Release/libcrypto.a</staticLibrary>
+		</platform>
+	</platform>	
+</block>
+
+</cinder>
