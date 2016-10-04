@@ -36,8 +36,12 @@ build()
 {
 	prefix=$1
 
-	./Configure ${target} --${config} --prefix=${prefix}
-	
+	if [ "${config}" = "debug" ]; then
+		./Configure ${target} --${config} --prefix=${prefix}
+	else
+		./Configure ${target} --prefix=${prefix}
+	fi
+
 	make -j 6
 	make install_sw
 	make clean
@@ -68,7 +72,7 @@ buildIos()
 	if [ -f Makefiled ] ; then rm Makefile ; fi
 }
 
-for i in 0 
+for i in 0 1 
 do
 	config=${config_settings[i]}
 	config_path=${config_paths[i]}
@@ -101,6 +105,8 @@ do
 	cp ${temp_library_path}/lib/*.a ${final_library_path}
 done
 
+# generate a key so that we can test with the app.
+
 current_dir=`pwd`
 test_key_path=${current_dir}/test/SSL_Test/assets/dummy_key
 temp_bin_path=${current_dir}/tmp/openssl/bin
@@ -112,8 +118,11 @@ echo "Generating dummy key"
 ${temp_bin_path}/openssl genrsa -out ${test_key_path}/dummy.com.key 2048
 echo "Generating dummy certificate"
 ${temp_bin_path}/openssl req -new -sha256 -key ${test_key_path}/dummy.com.key -out ${test_key_path}/dummy.com.csr -config ${cnf_path}
-echo "Testing dummy certificate"
-${temp_bin_path}/openssl req -noout -text -in ${test_key_path}/dummy.com.csr -config ${cnf_path}
+echo "Signing certificate"
+${temp_bin_path}/openssl x509 -req -days 3650 -in ${test_key_path}/dummy.com.csr -signkey ${test_key_path}/dummy.com.key -out ${test_key_path}/dummy.com.crt
+cp ${test_key_path}/dummy.com.key ${test_key_path}/dummy.com.key.secure
+${temp_bin_path}/openssl rsa -in ${test_key_path}/dummy.com.key.secure -out ${test_key_path}/dummy.com.key -config ${cnf_path}
+${temp_bin_path}/openssl dhparam -out ${test_key_path}/dh1024.pem 1024
 rm -rf tmp
 echo "Build Complete!"
 

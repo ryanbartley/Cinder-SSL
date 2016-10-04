@@ -100,8 +100,9 @@ public:
 	, m_messages{messages}
 	, m_messageSize{messageSize}
 	{
-		m_context.use_certificate_chain_file((ci::getHomeDirectory()/"domain.com.ssl"/"domain.key.crt").string());
-		m_context.use_private_key_file((ci::getHomeDirectory()/"domain.com.ssl"/"domain.com.key").string(), asio::ssl::context::pem);
+		m_context.use_certificate_chain_file( ci::app::getAssetPath( "dummy_key/dummy.com.crt" ).string() );
+		m_context.use_private_key_file( ci::app::getAssetPath( "dummy_key/dummy.com.key" ).string(), asio::ssl::context::pem );
+		m_context.use_tmp_dh_file( ci::app::getAssetPath( "dummy_key/dh1024.pem" ).string() );
 		asyncAccept(connections);
 	}
 	
@@ -133,6 +134,7 @@ public:
 	: m_socket{ioService, m_context}
 	, m_buffer(messageSize)
 	{
+		m_context.load_verify_file( ci::app::getAssetPath( "dummy_key/dummy.com.crt" ).string() );
 		asio::connect(m_socket.lowest_layer(), iterator);
 		m_socket.handshake(asio::ssl::stream_base::client);
 	}

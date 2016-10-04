@@ -251,9 +251,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OTHER_LDFLAGS = (
 					"\"$(CINDER_PATH)/lib/libcinder_d.a\"",
-					../../../boringssl/build/ssl/libssl.a,
-					../../../boringssl/build/decrepit/libdecrepit.a,
-					../../../boringssl/build/crypto/libcrypto.a,
+					../../../lib/macosx/Debug/libssl.a,
+					../../../lib/macosx/Debug/libcrypto.a,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.libcinder.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = SSL_Test;
@@ -289,9 +288,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OTHER_LDFLAGS = (
 					"\"$(CINDER_PATH)/lib/libcinder.a\"",
-					../../../boringssl/build/ssl/libssl.a,
-					../../../boringssl/build/decrepit/libdecrepit.a,
-					../../../boringssl/build/crypto/libcrypto.a,
+					../../../lib/macosx/Release/libssl.a,
+					../../../lib/macosx/Release/libcrypto.a,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.libcinder.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = SSL_Test;
