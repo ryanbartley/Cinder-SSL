@@ -1,7 +1,10 @@
 if( NOT TARGET Cinder-SSL )
 	
 	get_filename_component( CINDER_SSL_INCLUDE_PATH "${CMAKE_CURRENT_LIST_DIR}/../../lib" ABSOLUTE )
-	get_filename_component( CINDER_PATH "${CMAKE_CURRENT_LIST_DIR}/../../../.." ABSOLUTE )
+  
+  if( NOT EXISTS ${CINDER_PATH} )
+    get_filename_component( CINDER_PATH "${CMAKE_CURRENT_LIST_DIR}/../../../.." ABSOLUTE )
+  endif()
 
 	if( NOT TARGET cinder )
 		include( "${CINDER_PATH}/proj/cmake/configure.cmake" )
