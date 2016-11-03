@@ -11,39 +11,22 @@
 	<supports os="ios" />
 	<supports os="macosx" />
 	<supports os="msw" />
-	
-	<includePath system="true">lib/include/</includePath>
 
 	<platform os="ios">
-		<platform config="Debug">
-			<staticLibrary>lib/ios/Debug/libssl.a</staticLibrary>
-			<staticLibrary>lib/ios/Debug/libcrypto.a</staticLibrary>
-		</platform>
-		<platform config="Release">
-			<staticLibrary>lib/ios/Release/libssl.a</staticLibrary>
-			<staticLibrary>lib/ios/Release/libcrypto.a</staticLibrary>
-		</platform>
+		<staticLibrary>lib/ios/libssl.a</staticLibrary>
+		<staticLibrary>lib/ios/libcrypto.a</staticLibrary>
+		<includePath system="true">include/ios</includePath>
 	</platform>
 	<platform os="macosx">
-		<platform config="Debug">
-			<staticLibrary>lib/macosx/Debug/libssl.a</staticLibrary>
-			<staticLibrary>lib/macosx/Debug/libcrypto.a</staticLibrary>
-		</platform>
-		<platform config="Release">
-			<staticLibrary>lib/macosx/Release/libssl.a</staticLibrary>
-			<staticLibrary>lib/macosx/Release/libcrypto.a</staticLibrary>
-		</platform>
+		<staticLibrary>lib/macosx/Release/libssl.a</staticLibrary>
+		<staticLibrary>lib/macosx/Release/libcrypto.a</staticLibrary>
+		<includePath system="true">include/macosx</includePath>
 	</platform>
 	<platform os="msw">
-		<platform config="Debug">
-			<staticLibrary>lib/msw/Debug/libssl.a</staticLibrary>
-			<staticLibrary>lib/msw/Debug/libcrypto.a</staticLibrary>
-		</platform>
-		<platform config="Release">
-			<staticLibrary>lib/msw/Release/libssl.a</staticLibrary>
-			<staticLibrary>lib/msw/Release/libcrypto.a</staticLibrary>
-		</platform>
+		<staticLibrary>lib/msw/libeay32MT.lib</staticLibrary>
+		<staticLibrary>lib/msw/ssleay32MT.lib</staticLibrary>
+		<includePath system="true">include/msw</includePath>
 	</platform>	
-</block>
 
+</block>
 </cinder>

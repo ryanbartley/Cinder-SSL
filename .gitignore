@@ -62,9 +62,10 @@ jniLibs/
 # cmake generated files
 cinderConfig.cmake
 
-lib/include
+lib/
 assets/
 tmp/
+include/
 
 # CinderBlocks
 blocks/
