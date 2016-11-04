@@ -18,8 +18,8 @@
 		<includePath system="true">include/ios</includePath>
 	</platform>
 	<platform os="macosx">
-		<staticLibrary>lib/macosx/Release/libssl.a</staticLibrary>
-		<staticLibrary>lib/macosx/Release/libcrypto.a</staticLibrary>
+		<staticLibrary>lib/macosx/libssl.a</staticLibrary>
+		<staticLibrary>lib/macosx/libcrypto.a</staticLibrary>
 		<includePath system="true">include/macosx</includePath>
 	</platform>
 	<platform os="msw">
