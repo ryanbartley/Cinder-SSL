@@ -16,7 +16,7 @@ if( NOT TARGET Cinder-SSL )
 	string( TOLOWER "${CINDER_TARGET}" CINDER_TARGET_LOWER )
 	
 	get_filename_component( SSL_LIBS_PATH "${CINDER_SSL_BLOCKS_PATH}/lib/${CINDER_TARGET_LOWER}" ABSOLUTE )
-	get_filename_component( SSL_INCLUDE_PATH "${CINDER_SSL_BLOCKS_PATH}/include/${CINDER_TARGET_LOWER}/include" ABSOLUTE )
+	get_filename_component( SSL_INCLUDE_PATH "${CINDER_SSL_BLOCKS_PATH}/include/${CINDER_TARGET_LOWER}" ABSOLUTE )
 	set( Cinder-SSL_LIBRARIES ${SSL_LIBS_PATH}/libssl.a ${SSL_LIBS_PATH}/libcrypto.a )
 	set( Cinder-SSL_INCLUDES ${SSL_INCLUDE_PATH} )
 
