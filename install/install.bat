@@ -40,14 +40,8 @@ mkdir "%tmp%"
 echo made tmp
 
 set ssl_final_lib_path="%parent%..\lib\msw"
-:: if %is_lib%==bin (
-::     set ssl_final_lib_path="%parent%..\bin\msw"    
-:: )
-echo set up lib path %ssl_final_lib_path%
-
 if exist %ssl_final_lib_path% rmdir %ssl_final_lib_path% /q /s
-mkdir %ssl_final_lib_path%\Release
-mkdir %ssl_final_lib_path%\Debug
+mkdir %ssl_final_lib_path%
 echo Final lib path: %ssl_final_lib_path%
 
 set ssl_final_include_path="%parent%..\include\msw"
