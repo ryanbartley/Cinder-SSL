@@ -61,7 +61,7 @@ buildOpenSSL()
     rm "${OPENSSL_BASE_DIR}/openssl/Makefiled" 
   fi
 
-	cp -r ${PREFIX}/include/ ${FINAL_INCLUDE_PATH}
+	cp -r ${PREFIX}/include/* ${FINAL_INCLUDE_PATH}
 	cp ${PREFIX}/lib/*.a ${FINAL_LIB_PATH}
 }
 
